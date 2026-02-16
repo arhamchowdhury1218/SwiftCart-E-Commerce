@@ -189,6 +189,39 @@
       <div class="w-11/12 lg:w-9/12 mx-auto mt-10">
         <h1 class="text-3xl font-extrabold text-left mb-3">Trending Now</h1>
 
+        <div class="text-right mb-4">
+          <!-- <div
+            id="categories-container"
+            class="dropdown dropdown-right dropdown-end dropdown-hover"
+            onclick="loadCategories()"
+          >
+            <div
+              tabindex="0"
+              role="button"
+              class="btn m-1 btn-active btn-primary"
+            >
+              Product Categories
+            </div>
+            <ul
+              id="categories-list"
+              tabindex="-1"
+              class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+            ></ul>
+          </div> -->
+          <details class="dropdown">
+            <summary onclick="loadCategories()" class="btn btn-primary m-2">
+              Product Categories
+            </summary>
+            <ul
+              id="categories-list"
+              class="menu bg-base-100 rounded-box w-52 p-2 shadow-sm dropdown-hover"
+            >
+              <!-- <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li> -->
+            </ul>
+          </details>
+        </div>
+
         <div
           id="products-container"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -227,6 +260,21 @@
           </div> -->
         </div>
       </div>
+    </section>
+    <section>
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+      <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+          <div id="product-details"></div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </section>
     <script src="/scripts/script.js"></script>
   </body>

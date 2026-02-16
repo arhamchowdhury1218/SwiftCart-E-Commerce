@@ -14,6 +14,87 @@ const loadProducts = () => {
     });
 };
 
+const loadCategories = () => {
+  fetch("https://fakestoreapi.com/products/categories")
+    .then((res) => res.json())
+    .then((categories) => {
+      console.log("Categories received:", categories);
+      displayCategories(categories);
+    });
+};
+
+const loadProductsByCategory = (category) => {
+  fetch(`https://fakestoreapi.com/products/category/${category}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(`Products in category "${category}":`, data);
+      displayProducts(data);
+    });
+};
+
+const loadProductDetails = (productId) => {
+  fetch(`https://fakestoreapi.com/products/${productId}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Product details:", data);
+      displayProductDetails(data);
+    });
+};
+
+const displayProductDetails = (product) => {
+  const productDetailsContainer = document.getElementById("product-details");
+  productDetailsContainer.innerHTML = `
+    <div class="card bg-base-100 w-96 shadow-sm border border-gray-200 mx-auto">
+      <div class="flex items-center justify-center bg-gray-200 p-10">
+        <figure>
+          <img class="h-40 w-40" src="${product.image}" alt="${product.title}" />
+        </figure>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">${product.title}</h2>
+        <p>${product.description}</p>
+       <div class="card-actions justify-between">
+            <p class="font-bold text-2xl">$${product.price}</p>
+            <div class="flex items-center gap-1">
+            <img class="h-4 w-4" src="/Assets/star.png" alt="Star Logo" />
+            <p>${product.rating.rate}(${product.rating.count})</p>
+        </div>
+    </div>
+       
+        <div class="card-actions justify-between mt-4">
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-cart-arrow-down"></i>Buy Now
+          </button>
+          <button class="btn btn-neutral btn-outline">
+            <i class="fa-solid fa-cart-shopping"></i>Add to Cart
+          </button>
+
+          
+        </div>
+      </div>
+    </div>`;
+  productmodal = document.getElementById("my_modal_5");
+  productmodal.showModal();
+};
+
+const displayCategories = (categories) => {
+  console.log("Displaying categories:", categories);
+  const categoriesContainer = document.getElementById("categories-list");
+  console.log("Categories container element:", categoriesContainer);
+  categoriesContainer.innerHTML = "";
+  categories.forEach((category) => {
+    const categoryButton = document.createElement("button");
+    categoryButton.classList.add("btn", "btn-primary", "btn-outline", "m-2");
+    console.log("Creating button for category:", category);
+    categoryButton.innerHTML = category;
+    categoryButton.addEventListener("click", () => {
+      console.log(`Category "${category}" button clicked`);
+      loadProductsByCategory(category);
+    });
+    categoriesContainer.appendChild(categoryButton);
+  });
+};
+
 const displayProducts = (products) => {
   const productsContainer = document.getElementById("products-container");
   productsContainer.innerHTML = "";
@@ -57,7 +138,8 @@ const displayProducts = (products) => {
             <h2 class="card-title">${product.title}</h2>
             <p class="font-bold text-2xl">$${product.price}</p>
             <div class="card-actions justify-between mt-4">
-              <button class="btn btn-neutral btn-outline">
+              <button
+               onclick="loadProductDetails(${product.id})" class="btn btn-neutral btn-outline">
                 <i class="fa-regular fa-eye"></i>Detail
               </button>
 
