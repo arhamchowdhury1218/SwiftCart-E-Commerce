@@ -1,7 +1,17 @@
 const loadProducts = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
-    .then((data) => displayProducts(data));
+    .then((data) => {
+      console.log("Data received:", data);
+      const topRatedProducts = data.filter(
+        (product) => product.rating.rate >= 4.7,
+      );
+      console.log("Top rated products:", topRatedProducts);
+      const topThreeProducts = topRatedProducts.slice(0, 3);
+      displayProducts(topThreeProducts);
+
+      // displayProducts(data);
+    });
 };
 
 const displayProducts = (products) => {
