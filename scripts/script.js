@@ -180,3 +180,4 @@ const displayProducts = (products) => {
 };
 
 loadProducts();
+loadCategories();
