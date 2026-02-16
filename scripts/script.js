@@ -56,6 +56,15 @@ const loadProductDetails = (productId) => {
     });
 };
 
+const addToCart = (productId) => {
+  console.log(`Product with ID ${productId} added to cart.`);
+  const cartCountElement = document.getElementById("cart-count");
+  let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
+  cartCount = cartCount + 1;
+  localStorage.setItem("cartCount", cartCount);
+  cartCountElement.textContent = cartCount;
+};
+
 const displayProductDetails = (product) => {
   const productDetailsContainer = document.getElementById("product-details");
   productDetailsContainer.innerHTML = `
@@ -80,7 +89,7 @@ const displayProductDetails = (product) => {
           <button class="btn btn-primary">
             <i class="fa-solid fa-cart-arrow-down"></i>Buy Now
           </button>
-          <button class="btn btn-neutral btn-outline">
+          <button onclick="addToCart(${product.id})" class="btn btn-neutral btn-outline">
             <i class="fa-solid fa-cart-shopping"></i>Add to Cart
           </button>
 
