@@ -79,10 +79,10 @@
               </li>
             </ul>
           </div>
-          <div class="dropdown dropdown-end">
+          <!-- <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
               <div class="indicator">
-                <!-- <span id="cart-count" class="badge badge-sm indicator-item">0</span> -->
+                
                 <button class="btn">
                   <i class="fa-solid fa-cart-shopping"></i>
                   <div id="cart-count" class="badge badge-sm badge-primary">
@@ -101,6 +101,42 @@
                 <div class="card-actions">
                   <button class="btn btn-primary btn-block">View cart</button>
                 </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="">
+            <!-- Hidden checkbox -->
+            <input id="cart-drawer" type="checkbox" class="drawer-toggle" />
+
+            <!-- Navbar cart button -->
+            <div class="">
+              <label
+                onclick="displayCartProducts()"
+                for="cart-drawer"
+                class="btn btn-ghost btn-circle indicator"
+              >
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+                <span id="cart-count" class="badge badge-sm indicator-item"
+                  >0</span
+                >
+              </label>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="drawer-side">
+              <label for="cart-drawer" class="drawer-overlay"></label>
+
+              <div class="menu bg-base-100 min-h-full w-80 p-4 shadow-lg">
+                <h2 class="text-xl font-bold mb-4">
+                  <i class="fa-solid fa-cart-flatbed"></i>Your Cart
+                </h2>
+
+                <div id="cart-items">
+                  <!-- <p>No items in cart</p> -->
+                </div>
+
+                <button class="btn btn-primary mt-4 w-full">Checkout</button>
               </div>
             </div>
           </div>
