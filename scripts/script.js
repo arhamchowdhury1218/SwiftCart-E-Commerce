@@ -1,4 +1,17 @@
+const manageSpinner = (isLoading) => {
+  const spinner = document.getElementById("loading-section");
+  const productContainer = document.getElementById("products-container");
+  if (isLoading) {
+    spinner.classList.remove("hidden");
+    productContainer.classList.add("hidden");
+  } else {
+    spinner.classList.add("hidden");
+    productContainer.classList.remove("hidden");
+  }
+};
+
 const loadProducts = () => {
+  manageSpinner(true);
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => {
@@ -24,6 +37,7 @@ const loadCategories = () => {
 };
 
 const loadProductsByCategory = (category) => {
+  manageSpinner(true);
   fetch(`https://fakestoreapi.com/products/category/${category}`)
     .then((res) => res.json())
     .then((data) => {
@@ -33,6 +47,7 @@ const loadProductsByCategory = (category) => {
 };
 
 const loadProductDetails = (productId) => {
+  manageSpinner(true);
   fetch(`https://fakestoreapi.com/products/${productId}`)
     .then((res) => res.json())
     .then((data) => {
@@ -75,6 +90,7 @@ const displayProductDetails = (product) => {
     </div>`;
   productmodal = document.getElementById("my_modal_5");
   productmodal.showModal();
+  manageSpinner(false);
 };
 
 const displayCategories = (categories) => {
@@ -150,6 +166,7 @@ const displayProducts = (products) => {
           </div>
     `;
     productsContainer.appendChild(productDiv);
+    manageSpinner(false);
   });
 };
 
