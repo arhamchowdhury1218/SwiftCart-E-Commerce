@@ -118,6 +118,23 @@ const displayCategories = (categories) => {
   const categoriesContainer = document.getElementById("categories-list");
 
   categoriesContainer.innerHTML = "";
+
+  // All button to show all products
+  const allButton = document.createElement("button");
+  allButton.classList.add(
+    "btn",
+    "btn-primary",
+    "btn-outline",
+    "m-2",
+    "active-btn",
+  );
+  allButton.innerHTML = "All";
+  allButton.addEventListener("click", () => {
+    removeActiveClass();
+    allButton.classList.add("btn-active");
+    loadAllProducts();
+  });
+  categoriesContainer.appendChild(allButton);
   categories.forEach((category) => {
     const categoryButton = document.createElement("button");
     categoryButton.classList.add(
