@@ -22,11 +22,10 @@ const loadProducts = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => {
-      console.log("Data received:", data);
       const topRatedProducts = data.filter(
         (product) => product.rating.rate >= 4.7,
       );
-      console.log("Top rated products:", topRatedProducts);
+
       const topThreeProducts = topRatedProducts.slice(0, 3);
       displayProducts(topThreeProducts);
 
@@ -34,11 +33,20 @@ const loadProducts = () => {
     });
 };
 
+const loadAllProducts = () => {
+  manageSpinner(true);
+  fetch("https://fakestoreapi.com/products")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("All products loaded:", data);
+      displayProducts(data);
+    });
+};
+
 const loadCategories = () => {
   fetch("https://fakestoreapi.com/products/categories")
     .then((res) => res.json())
     .then((categories) => {
-      console.log("Categories received:", categories);
       displayCategories(categories);
     });
 };
@@ -48,7 +56,6 @@ const loadProductsByCategory = (category) => {
   fetch(`https://fakestoreapi.com/products/category/${category}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(`Products in category "${category}":`, data);
       displayProducts(data);
     });
 };
@@ -58,13 +65,11 @@ const loadProductDetails = (productId) => {
   fetch(`https://fakestoreapi.com/products/${productId}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log("Product details:", data);
       displayProductDetails(data);
     });
 };
 
 const addToCart = (productId) => {
-  console.log(`Product with ID ${productId} added to cart.`);
   const cartCountElement = document.getElementById("cart-count");
   let cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
   cartCount = cartCount + 1;
@@ -110,9 +115,8 @@ const displayProductDetails = (product) => {
 };
 
 const displayCategories = (categories) => {
-  console.log("Displaying categories:", categories);
   const categoriesContainer = document.getElementById("categories-list");
-  console.log("Categories container element:", categoriesContainer);
+
   categoriesContainer.innerHTML = "";
   categories.forEach((category) => {
     const categoryButton = document.createElement("button");
@@ -123,10 +127,9 @@ const displayCategories = (categories) => {
       "m-2",
       "active-btn",
     );
-    console.log("Creating button for category:", category);
+
     categoryButton.innerHTML = category;
     categoryButton.addEventListener("click", () => {
-      console.log(`Category "${category}" button clicked`);
       removeActiveClass();
       categoryButton.classList.add("btn-active");
       loadProductsByCategory(category);
@@ -136,6 +139,7 @@ const displayCategories = (categories) => {
 };
 
 const displayProducts = (products) => {
+  console.log("Displaying products:", products);
   const productsContainer = document.getElementById("products-container");
   productsContainer.innerHTML = "";
   products.forEach((product) => {
@@ -196,3 +200,13 @@ const displayProducts = (products) => {
 
 loadProducts();
 loadCategories();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const page = window.location.pathname;
+
+  if (page.includes("products.html")) {
+    loadAllProducts(); // Products page
+  } else {
+    loadProducts(); // Home page
+  }
+});

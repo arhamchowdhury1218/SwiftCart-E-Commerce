@@ -44,12 +44,10 @@
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
             <li>
-              <a><span class="text-gray-500">Home</span></a>
+              <a href="/index.html"><span class="text-gray-500">Home</span></a>
             </li>
             <li>
-              <a href="/products.html"
-                ><span class="text-gray-500">Products</span></a
-              >
+              <a><span class="text-gray-500">Products</span></a>
             </li>
             <li>
               <a><span class="text-gray-500">About</span></a>
@@ -83,31 +81,6 @@
               </li>
             </ul>
           </div>
-          <!-- <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-              <div class="indicator">
-                
-                <button class="btn">
-                  <i class="fa-solid fa-cart-shopping"></i>
-                  <div id="cart-count" class="badge badge-sm badge-primary">
-                    0
-                  </div>
-                </button>
-              </div>
-            </div>
-            <div
-              tabindex="0"
-              class="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow"
-            >
-              <div class="card-body">
-                <span class="text-lg font-bold">8 Items</span>
-                <span class="text-info">Subtotal: $999</span>
-                <div class="card-actions">
-                  <button class="btn btn-primary btn-block">View cart</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
 
           <div class="">
             <!-- Hidden checkbox -->
@@ -147,92 +120,10 @@
         </div>
       </div>
     </header>
-    <section>
-      <div
-        class="hero min-h-screen bg-[url('/assets/banner-image.png')] bg-cover bg-center mb-10"
-      >
-        <div class="hero-overlay"></div>
-        <div class="text-neutral-content text-left">
-          <div class="lg:max-w-4xl p-4">
-            <h1 class="mb-5 text-3xl lg:text-5xl font-extrabold">
-              Best Collection For You
-            </h1>
-            <p class="mb-5 font-semibold text-lg text-wrap">
-              Discover the perfect blend of style and comfort in our curated
-              collection. From trendy apparel to must-have accessories, we have
-              everything you need to elevate your fashion game. Shop now and
-              experience the best of both worlds!
-            </p>
-            <button class="btn btn-primary">Shop Now</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="w-11/12 lg:w-9/12 mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-3">Why Choose US</h1>
-        <p class="text-center text-gray-500">
-          We offer the best quality products at competitive prices, with fast
-          and reliable delivery options.
-        </p>
-
-        <div class="flex flex-col lg:flex-row justify-center">
-          <div class="rounded-lg bg-gray-100 p-4 m-4">
-            <i class="fa-solid fa-truck-moving text-violet-600 mb-3"></i>
-            <h2 class="text-xl font-semibold mb-3">Fast Delivery</h2>
-            <p class="text-gray-500">
-              We ensure that your orders are delivered quickly and efficiently,
-              so you can enjoy your purchases without delay.
-            </p>
-          </div>
-          <div class="rounded-lg bg-gray-100 p-4 m-4">
-            <i class="fa-solid fa-headset text-violet-600 mb-3"></i>
-            <h2 class="text-xl font-semibold mb-3">24/7 Support</h2>
-            <p class="text-gray-500">
-              Our dedicated support team is available around the clock to assist
-              you with any questions or concerns you may have, ensuring a smooth
-              shopping experience.
-            </p>
-          </div>
-          <div class="rounded-lg bg-gray-100 p-4 m-4">
-            <i class="fa-solid fa-shield-alt text-violet-600 mb-3"></i>
-            <h2 class="text-xl font-semibold mb-3">Secure Payment</h2>
-            <p class="text-gray-500">
-              We prioritize the security of your transactions and offer a
-              variety of secure payment options to ensure your information is
-              protected.
-            </p>
-          </div>
-          <div class="rounded-lg bg-gray-100 p-4 m-4">
-            <i class="fa-solid fa-undo text-violet-600 mb-3"></i>
-            <h2 class="text-xl font-semibold mb-3">Easy Returns</h2>
-            <p class="text-gray-500">
-              We make returns simple and hassle-free. If you're not satisfied
-              with your purchase, you can return it easily within our return
-              policy period.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section>
       <div class="w-11/12 lg:w-9/12 mx-auto mt-10">
-        <h1 class="text-3xl font-extrabold text-left mb-3">Trending Now</h1>
-
-        <!-- <div class="text-right mb-4">
-          <details class="dropdown">
-            <summary onclick="loadCategories()" class="btn btn-primary m-2">
-              Product Categories
-            </summary>
-            <ul
-              id="categories-list"
-              class="menu bg-base-100 rounded-box w-52 p-2 shadow-sm dropdown-hover"
-            >
-          
-            </ul>
-          </details>
-        </div> -->
+        <h1 class="text-3xl font-extrabold text-center mb-3">Our Products</h1>
 
         <div class="text-center">
           <ul
@@ -247,40 +138,7 @@
         <div
           id="products-container"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div class="card-body">
-            <div>
-              <div class="card-actions justify-between">
-                <div class="badge badge-soft badge-primary bg-gray-200">
-                  Primary
-                </div>
-                <div class="flex items-center gap-1">
-                  <img class="h-4 w-4" src="/Assets/star.png" alt="Star Logo" />
-                  <p>3.9(120)</p>
-                </div>
-              </div>
-              <div></div>
-            </div>
-
-            <h2 class="card-title">Card Title</h2>
-            <p class="font-bold text-2xl">$49.99</p>
-            <div class="card-actions justify-between mt-4">
-              <button class="btn btn-neutral btn-outline">
-                <i class="fa-regular fa-eye"></i>Detail
-              </button>
-
-              <button class="btn btn-primary">
-                <i class="fa-solid fa-cart-shopping"></i>Buy Now
-              </button>
-            </div>
-          </div> -->
-        </div>
+        ></div>
       </div>
     </section>
     <section>
