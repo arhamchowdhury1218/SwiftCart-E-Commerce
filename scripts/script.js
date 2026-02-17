@@ -221,9 +221,9 @@ loadCategories();
 document.addEventListener("DOMContentLoaded", () => {
   const page = window.location.pathname;
 
-  if (page.includes("products.html")) {
-    loadAllProducts(); // Products page
+  if (page.includes("products") || page.includes("products.html")) {
+    loadAllProducts();
   } else {
-    loadProducts(); // Home page
+    loadProducts();
   }
 });
